@@ -1,8 +1,13 @@
 import urllib.request
 import urllib.parse
 import json
+import xml.etree.ElementTree as ET
+
+access_token = ""
 
 def get_access_token():
+    "Get access token from Azure Marketplace"
+
     url = "https://datamarket.accesscontrol.windows.net/v2/OAuth2-13"
     data = {
         "client_id": "blender-assets-translator",
@@ -22,6 +27,28 @@ def get_access_token():
 
     return result['access_token']
 
-token = get_access_token()
+def translate(text):
+    "Translate text into English via Microsoft Translator"
 
-print(token)
+    url = "http://api.microsofttranslator.com/v2/Http.svc/Translate"
+
+    data = {
+        "text": text,
+        "to": "en"
+    }
+
+    data = urllib.parse.urlencode(data)
+    url += "?" + data
+
+    req = urllib.request.Request(url=url, method="GET")
+    req.add_header("Authorization", "Bearer " + access_token)
+
+    result = urllib.request.urlopen(req).read()
+    result = str(result, "utf-8")
+    result = ET.fromstring(result)
+    result = result.text
+
+    return result
+
+access_token = get_access_token()
+print(translate("これ"))
