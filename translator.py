@@ -1,12 +1,22 @@
 import urllib.request
 import urllib.parse
 import json
+import time
 import xml.etree.ElementTree as ET
 
 access_token = ""
+access_token_expires_at = time.time()
 
 def get_access_token():
-    "Get access token from Azure Marketplace"
+    global access_token
+
+    if (not bool(access_token)) or time.time() > access_token_expires_at:
+        access_token = req_access_token()
+
+    return access_token
+
+def req_access_token():
+    global access_token_expires_at
 
     url = "https://datamarket.accesscontrol.windows.net/v2/OAuth2-13"
     data = {
@@ -25,23 +35,23 @@ def get_access_token():
     result = str(result, "utf-8")
     result = json.loads(result)
 
-    return result['access_token']
+    access_token_expires_at = time.time() + int(result["expires_in"])
 
-def translate(text):
-    "Translate text into English via Microsoft Translator"
+    return result["access_token"]
 
+def translate(text, to="en"):
     url = "http://api.microsofttranslator.com/v2/Http.svc/Translate"
 
     data = {
         "text": text,
-        "to": "en"
+        "to": to
     }
 
     data = urllib.parse.urlencode(data)
     url += "?" + data
 
     req = urllib.request.Request(url=url, method="GET")
-    req.add_header("Authorization", "Bearer " + access_token)
+    req.add_header("Authorization", "Bearer " + get_access_token())
 
     result = urllib.request.urlopen(req).read()
     result = str(result, "utf-8")
@@ -49,6 +59,3 @@ def translate(text):
     result = result.text
 
     return result
-
-access_token = get_access_token()
-print(translate("これ"))
