@@ -10,27 +10,41 @@ It can be useful for cases like:
 ## Installation
 
 1. Download `translate_datablock_names.py`
-2. File Menu -> User Preferences
+2. Open preference window by **File Menu -> User Preferences**
 3. Go to Addons tab
-4. Click Install from File... Button at the buttom
+4. Click **Install from File...** at the buttom
 5. Select the `translate_datablock_names.py` script you've just download
-6. Activate `Object: Translate Datablock Names` by checking the checkbox
+6. Activate **Object: Translate Datablock Names** by checking the checkbox
+7. **Save User Settings** to make sure the addon is loaded automatically next time you start Blender
+
+## How to use it
+
+You can find **Translate Dateblock Names** command in **Spacebar Menu**.
+And you can also be found it **Outliner Window -> Search Menu**.
+
+![Search Menu Screenshot](http://i.imgur.com/u5ZzW0Z.png)
+
+In the dialog, choose datablock types that need translation, and click OK.
+
+![Dialog Screenshot](http://i.imgur.com/kTVHaob.png)
+
+The time it takes to translate may differ according to the number of objects and your network condition. (Normally less than 1min)
 
 ## How does it work?
 
-It will go through your blender data, looking for any name that contains special character, and translate them into English.
+Blender Datablock Translator will go through your blender data, looking for any name that contains special character, and translate them into English.
 You can choose which datablock type should be translated (Object/Material/Animation/Armature), and keep the other datablocks untouched.
 
 [Microsoft Translator API](http://msdn.microsoft.com/en-us/library/dd576287.aspx) is used for translations.
 
 ## Can I choose source/target language?
 
-You cannot do it right now. But this feature will be added very soon.
+It's not supported right now. But this feature will be added very soon.
 
 ## Supported Blender Version
 
-It is written and tested on Blender 2.69.
+Blender Datablock Translator is tested on Blender 2.69.
 
 ## Need More Fancy Features?
 
-Feel free to create feature-labeled issues :)
+Feel free to create feature issue :)
