@@ -9,7 +9,7 @@ It can be useful for cases like:
 
 ## Installation
 
-1. Download <a href="https://raw.github.com/toruta39/blender-datablock-translator/master/translate_datablock_names.py" target="_blank">translate_datablock_names.py</a>
+1. Download <a href="https://raw.github.com/toruta39/blender-datablock-translator/master/translate_datablock_names.py" target="_blank" download="translate_datablock_names.py">translate_datablock_names.py</a>
 2. Open preference window by **File Menu -> User Preferences**
 3. Go to Addons tab
 4. Click **Install from File...** at the buttom
