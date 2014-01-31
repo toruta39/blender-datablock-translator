@@ -4,7 +4,7 @@ A blender addon/plugin that helps to translate datablock names to English.
 
 It can be useful for cases like:
 
-* Export blender data into some format that don't support asian characters.
+* Export blender data into some format that doesn't support asian characters.
 * Make datablock names visible even when **International Fonts** setting is switched off.
 
 ## Installation
