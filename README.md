@@ -13,7 +13,7 @@ It can be useful for cases like:
 2. Open preference window by **File Menu -> User Preferences**
 3. Go to **Addons** tab
 4. Click **Install from File...** at the buttom
-5. Select the `translate_datablock_names.py` file you've just download
+5. Select the `translate_datablock_names.py` file you've just downloaded
 6. Activate **Object: Translate Datablock Names** by checking the checkbox
 7. **Save User Settings** to make sure the addon is loaded automatically next time you start Blender
 
