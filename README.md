@@ -11,9 +11,9 @@ It can be useful for cases like:
 
 1. Download <a href="https://raw.github.com/toruta39/blender-datablock-translator/master/translate_datablock_names.py" target="_blank" download="translate_datablock_names.py">translate_datablock_names.py</a>
 2. Open preference window by **File Menu -> User Preferences**
-3. Go to Addons tab
+3. Go to **Addons** tab
 4. Click **Install from File...** at the buttom
-5. Select the `translate_datablock_names.py` script you've just download
+5. Select the `translate_datablock_names.py` file you've just download
 6. Activate **Object: Translate Datablock Names** by checking the checkbox
 7. **Save User Settings** to make sure the addon is loaded automatically next time you start Blender
 
