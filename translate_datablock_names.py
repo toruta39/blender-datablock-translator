@@ -131,6 +131,11 @@ class TranslateDatablockNames(bpy.types.Operator):
         default=True,
         description='Translate Armature Names')
 
+    is_shapekey_to_translate = bpy.props.BoolProperty(
+        name='Shape Key',
+        default=True,
+        description='Translate Shape Key Names')
+
     dialog_width = 200
 
     def draw(self, context):
@@ -142,13 +147,16 @@ class TranslateDatablockNames(bpy.types.Operator):
         row = layout.row()
         row.prop(self.properties, 'is_animation_to_translate')
         row.prop(self.properties, 'is_armature_to_translate')
+        row = layout.row()
+        row.prop(self.properties, 'is_shapekey_to_translate')
 
     def execute(self, context):
         translate_datablock_name(
             is_object_to_translate=self.is_object_to_translate,
             is_material_to_translate=self.is_material_to_translate,
             is_animation_to_translate=self.is_animation_to_translate,
-            is_armature_to_translate=self.is_armature_to_translate
+            is_armature_to_translate=self.is_armature_to_translate,
+            is_shapekey_to_translate=self.is_shapekey_to_translate
         )
         return {'FINISHED'}
 
@@ -166,7 +174,8 @@ def translate_datablock_name(
     is_object_to_translate=False,
     is_material_to_translate=False,
     is_animation_to_translate=False,
-    is_armature_to_translate=False
+    is_armature_to_translate=False,
+    is_shapekey_to_translate=False
 ):
     if is_object_to_translate:
         for obj in bpy.data.objects:
@@ -204,7 +213,18 @@ def translate_datablock_name(
                 bone.name = hyphenize(
                     ms_translator.translate(bone.name)
                 )
-
+				
+    if is_shapekey_to_translate:
+        for shapekey in bpy.data.shape_keys:
+            if has_irregular_char(shapekey.name):
+                shapekey.name = hyphenize(
+                    ms_translator.translate(shapekey.name)
+                )
+            for keyblock in shapekey.key_blocks:
+                if has_irregular_char(keyblock.name):
+                    keyblock.name = hyphenize(
+                        ms_translator.translate(keyblock.name)
+                    )
 
 def hyphenize(string):
     return '-'.join(string.split())
