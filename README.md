@@ -1,4 +1,5 @@
-# DEPRECATED: Please try https://github.com/michaeldegroot/cats-blender-plugin
+**DEPRECATED, PLEASE USE: https://github.com/michaeldegroot/cats-blender-plugin**
+<br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
 
 # Blender Datablock Translator
 
