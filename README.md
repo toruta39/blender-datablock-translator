@@ -1,3 +1,5 @@
+# DEPRECATED: Please try https://github.com/michaeldegroot/cats-blender-plugin
+
 # Blender Datablock Translator
 
 A blender addon/plugin that helps to translate datablock names to English.
